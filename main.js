@@ -12,12 +12,12 @@ class taskList {
   agregarTarea(newTarea){
     this.tareas.push(newTarea);
   }
-  eliminarTarea(elemento){
-    this.tareasCompletadas.push(elemento);
-    let valor = this.tareas.indexOf(elemento);
-    this.tareas.splice(valor);
+  deleteTask(element){
+    this.tareasCompletadas.push(element);
+    let value = this.tareas.indexOf(element);
+    this.tareas.splice(value);
   }
-  eliminarTodo(){
+  deleteAll(){
     this.tareas = [];
     this.tareasCompletadas = [];
   }
@@ -41,12 +41,10 @@ function showData(){
     return `<li>${tareaDelHogar}</li>`;
   })
   elementList.innerHTML = list.join('');
-
 }
+
+
 // add new task.
-
-
-
 function newElement(){
   const newTask = document.getElementById('labelTask').value;
   if(newTask === ''){
@@ -57,4 +55,14 @@ function newElement(){
     showData()
   }
 }
+
+// var list = document.querySelector('ul');
+// list.addEventListener('click', function(ev) {
+//     this.parentElement = tareaDelHogar.deleteTask(this);
+//     console.log(tareaDelHogar.tareasCompletadas)
+//     showData();
+  
+// });
+// mark task completed.
+
 showData();
