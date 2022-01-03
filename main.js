@@ -1,11 +1,11 @@
 // Se crea lista de Tareas
 class taskList {
   constructor({
-    lista, //Nombre de la lista
+    // lista, //Nombre de la lista
     tareas = [], // Tareas pendientes
     tareasCompletadas = [], //Tereas Completadas
   }) {
-    this.lista = lista;
+    // this.lista = lista;
     this.tareas = tareas;
     this.tareasCompletadas = tareasCompletadas;
   }
@@ -24,11 +24,34 @@ class taskList {
 }
 
 const tareaDelHogar = new taskList({
-  lista: "Tareas del Hogar",
+  // lista: "Tareas del Hogar",
   tareas: [
-    "Limpiar el cuarto",
-    "Lavar el bannio",
-    "Lavar Ropa",
+    "Clean bathroom",
+    "wash restroom",
+    "wash clothes",
+    "clean the house",
+    "destroid the universe"
   ],
 });
 
+// Show task in html
+const elementList = document.getElementById('taskList-ul');
+const list = tareaDelHogar.tareas.map(tareaDelHogar => {
+  return `<li>${tareaDelHogar}</li>`;
+})
+elementList.innerHTML = list.join('');
+
+// add new task.
+
+
+
+function newElement(){
+  const newTask = document.getElementById('labelTask').value;
+  if(newTask === ''){
+    alert('You need write Something');
+  } else {
+    tareaDelHogar.agregarTarea(newTask);
+    document.getElementById('labelTask').value = '';
+  }
+
+}
