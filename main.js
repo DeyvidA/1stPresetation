@@ -56,13 +56,14 @@ function newElement(){
   }
 }
 
-// var list = document.querySelector('ul');
-// list.addEventListener('click', function(ev) {
-//     this.parentElement = tareaDelHogar.deleteTask(this);
-//     console.log(tareaDelHogar.tareasCompletadas)
-//     showData();
+var list = document.querySelector('ul');
+list.addEventListener('click', function(ev) {
+    this.parentElement = tareaDelHogar.deleteTask(this);
+    console.log(tareaDelHogar.tareasCompletadas)
+    showData();
   
-// });
+});
+
 // mark task completed.
 
 showData();
