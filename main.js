@@ -35,12 +35,14 @@ const tareaDelHogar = new taskList({
 });
 
 // Show task in html
-const elementList = document.getElementById('taskList-ul');
-const list = tareaDelHogar.tareas.map(tareaDelHogar => {
-  return `<li>${tareaDelHogar}</li>`;
-})
-elementList.innerHTML = list.join('');
+function showData(){
+  const elementList = document.getElementById('taskList-ul');
+  const list = tareaDelHogar.tareas.map(tareaDelHogar => {
+    return `<li>${tareaDelHogar}</li>`;
+  })
+  elementList.innerHTML = list.join('');
 
+}
 // add new task.
 
 
@@ -52,6 +54,7 @@ function newElement(){
   } else {
     tareaDelHogar.agregarTarea(newTask);
     document.getElementById('labelTask').value = '';
+    showData()
   }
-
 }
+showData();
