@@ -24,11 +24,6 @@ class taskList {
 }
 
 
-// read two numbers
-function readNumber(){
-  
-}
-
 const tareaDelHogar = new taskList({
   // lista: "Tareas del Hogar",
   tareas: [
@@ -49,16 +44,6 @@ function showData(){
   elementList.innerHTML = list.join('');
 }
 
-
-function showDataCompleted(){
-  const elementList = document.getElementById('taskCompleted');
-  const list = tareaDelHogar.tareasCompletadas.map(tareaDelHogar => {
-    return `<li>${tareaDelHogar}</li>`;
-  });
-  elementList.innerHTML = list.join('');
-}
-
-
 // add new task.
 function newElement(){
   const newTask = document.getElementById('labelTask').value;
@@ -75,22 +60,19 @@ function newElement(){
 var list = document.querySelector('ul');
 list.addEventListener('click', function(ev) {
   if (ev.target.tagName === 'LI') {
-    ev.target.classList.toggle('checked');
+    let item = ev.target.classList.toggle('checked');
+    let value = ev.target.innerHTML;
+    
+    if(item){
+      tareaDelHogar.deleteTask(value)
+      console.log(value);
+    }
   }
-}, false);
+  
+});
 
 
 
-// no funciona
-// var list = document.querySelector('ul');
-// list.addEventListener('click', function(ev) {
-//     this.parentElement = tareaDelHogar.deleteTask(this);
-//     console.log(tareaDelHogar.tareasCompletadas)
-//     showData();
-//     showDataCompleted();
-// });
-
-// mark task completed.
 
 showData();
 

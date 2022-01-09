@@ -107,7 +107,7 @@ section .form{
 }
 
 
-.taskList .checked{
+#taskCompleted-ul li{
     color: #9599a2;
     background-color: rgba(65, 62, 63, 0.9);
     text-decoration-line: line-through;
