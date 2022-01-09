@@ -71,7 +71,7 @@ section .form{
     margin-bottom: 3rem;
     padding: .2rem;
     width: 50%;
-    height: 2rem;
+    height: 3rem;
     border: none;
     border-bottom: 3px solid #a51f00;
     border-radius: 4px;
@@ -96,13 +96,12 @@ section .form{
     border-radius: 4px;
     margin: .8rem auto;
     padding: .5rem;
-    padding-left: 1.7rem;
+    /* padding-left: 1rem; */
     font-size: 1.4rem;
-    transition-property: height, width;
-    transition: .7s;
+    transition: .7s; 
 }
 .taskList li:hover{
-    transform: scale(1.2);
+    transform: scale(1);
     box-shadow: 0px 3px 6px #4c4947;
 }
 
@@ -111,4 +110,25 @@ section .form{
     color: #9599a2;
     background-color: rgba(65, 62, 63, 0.9);
     text-decoration-line: line-through;
+}
+
+.algo{
+    margin-right: .5rem;
+    padding: 0 1rem;
+    width: 10%;
+    height: 100%;
+    font-size: 2rem;
+    text-align: center;
+    border-radius: 1rem;
+    transition: 1s;
+}
+.algo:hover{
+    color: green;
+    background-color: #1c2329;
+    transform: scale(1);
+    box-shadow: 0px 3px 6px #4c4947;
+}
+
+#taskCompleted-ul span{
+    color: green;
 }

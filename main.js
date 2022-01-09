@@ -39,10 +39,19 @@ const tareaDelHogar = new taskList({
 function showData(){
   const elementList = document.getElementById('taskList-ul');
   const list = tareaDelHogar.tareas.map(tareaDelHogar => {
+    return `<li><span class='algo'>✔</span>${tareaDelHogar}</li>`;
+  });
+  elementList.innerHTML = list.join('');
+}
+
+function showDataComplete(){
+  const elementList = document.getElementById('taskCompleted-ul');
+  const list = tareaDelHogar.tareasCompletadas.map(tareaDelHogar => {
     return `<li>${tareaDelHogar}</li>`;
   });
   elementList.innerHTML = list.join('');
 }
+
 
 // add new task.
 function newElement(){
@@ -64,9 +73,12 @@ list.addEventListener('click', function(ev) {
     let value = ev.target.innerHTML;
     
     if(item){
-      tareaDelHogar.deleteTask(value)
+      tareaDelHogar.deleteTask(value); 
       console.log(value);
     }
+
+    showData();
+    showDataComplete();
   }
   
 });
@@ -75,4 +87,5 @@ list.addEventListener('click', function(ev) {
 
 
 showData();
+showDataComplete();
 
