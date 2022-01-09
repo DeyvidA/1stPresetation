@@ -73,6 +73,7 @@ list.addEventListener('click', function(ev) {
     let value = ev.target.innerHTML;
     
     if(item){
+
       tareaDelHogar.deleteTask(value); 
       console.log(value);
     }
