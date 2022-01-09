@@ -23,6 +23,12 @@ class taskList {
   }
 }
 
+
+// read two numbers
+function readNumber(){
+  
+}
+
 const tareaDelHogar = new taskList({
   // lista: "Tareas del Hogar",
   tareas: [
@@ -39,7 +45,16 @@ function showData(){
   const elementList = document.getElementById('taskList-ul');
   const list = tareaDelHogar.tareas.map(tareaDelHogar => {
     return `<li>${tareaDelHogar}</li>`;
-  })
+  });
+  elementList.innerHTML = list.join('');
+}
+
+
+function showDataCompleted(){
+  const elementList = document.getElementById('taskCompleted');
+  const list = tareaDelHogar.tareasCompletadas.map(tareaDelHogar => {
+    return `<li>${tareaDelHogar}</li>`;
+  });
   elementList.innerHTML = list.join('');
 }
 
@@ -56,14 +71,26 @@ function newElement(){
   }
 }
 
+// Select list element
 var list = document.querySelector('ul');
 list.addEventListener('click', function(ev) {
-    this.parentElement = tareaDelHogar.deleteTask(this);
-    console.log(tareaDelHogar.tareasCompletadas)
-    showData();
-  
-});
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+
+
+
+// no funciona
+// var list = document.querySelector('ul');
+// list.addEventListener('click', function(ev) {
+//     this.parentElement = tareaDelHogar.deleteTask(this);
+//     console.log(tareaDelHogar.tareasCompletadas)
+//     showData();
+//     showDataCompleted();
+// });
 
 // mark task completed.
 
 showData();
+

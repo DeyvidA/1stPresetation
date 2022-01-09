@@ -11,31 +11,29 @@
 <body>
     <header>
         <h1>Road To Success</h1>
-        <p>1st Presetation.</p>
+        <h3>1st Presetation.</h3>
     </header>
-    <section>
-        <div class="form">
-            <div class="form-information">
-                <h2 class="form-title">To do List.</h2>
-                <p class="form-description">this small project is a test that tries to address some of the knowledge acquired during <br> <span class="subtitle">ROAD TO SUCCESS</span> </p>
+    <main>
+        <section class="description">
+            <div class="form">
+                <div class="form-information">
+                    <h2 class="form-title">To do List.</h2>
+                    <p class="form-description">this small project is a test that tries to address some of the knowledge acquired during <br> <span class="subtitle">ROAD TO SUCCESS</span> </p>
+                </div>
+                <form action="" class="form-form">
+                    <label for="task">Add here <b>your task</b>!!!</label>
+                    <input type="task" placeholder="ex: Clean the bathroom." id="labelTask">
+                    <button type="button" id="addTask" class="form-button" onclick="newElement()">Add</button>
+                </form>
             </div>
-            <form action="" class="form-form">
-                <label for="task">Add here <b>your task</b>!!!</label>
-                <input type="task" placeholder="ex: Clean the bathroom." id="labelTask">
-                <button type="button" id="addTask" class="form-button" onclick="newElement()">Add</button>
-            </form>
-        </div>
-        <article class="taskList">
+        </section>
+        <section class="taskList">
             <div>
                 <ul id="taskList-ul">
                 </ul>
             </div>
-            <div class="tasksCompleted">
-                <ul id="taskCompleted">
-                </ul>
-            </div>
-        </article>
-    </section>
+        </section>
+    </main>
     <script src="./main.js"></script>
 </body>
 </html>
