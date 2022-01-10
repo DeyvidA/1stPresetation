@@ -12,8 +12,12 @@ class taskList {
   agregarTarea(newTarea){
     this.tareas.push(newTarea);
   }
-  deleteTask(element){
+  completeTask(element){
     this.tareasCompletadas.push(element);
+    let value = this.tareas.indexOf(element);
+    this.tareas.splice(value, 1);
+  }
+  deleteTask(element){
     let value = this.tareas.indexOf(element);
     this.tareas.splice(value, 1);
   }
@@ -39,7 +43,12 @@ const tareaDelHogar = new taskList({
 function showData(){
   const elementList = document.getElementById('taskList-ul');
   const list = tareaDelHogar.tareas.map((tareaDelHogar, index) => {
-    return `<li id="item_${index}"><span class='algo' onclick="taskCompleted(item_${index})"></span>${tareaDelHogar}</li>`;
+    return `<li>
+        <span class='algo' onclick="taskCompleted(item_${index})"><i class="fa fa-check-circle-o" aria-hidden="true"></i></span>
+        <p id="item_${index}">${tareaDelHogar}</p>
+        <span class='deleteTask' onclick="taskDelete(item_${index})"><i class="fa fa-minus-square" aria-hidden="true"></i></span>
+       
+      </li>`;
   });
   elementList.innerHTML = list.join('');
 }
@@ -95,10 +104,23 @@ function taskCompleted(indexItem){
 
   let droop = indexItem.innerText; 
   console.log(droop)
+  let dropItem = tareaDelHogar.completeTask(droop);
+  showData();
+  showDataComplete();
+}
+
+function taskDelete(indexItem){
+  let droop = indexItem.innerText; 
+  console.log(droop)
   let dropItem = tareaDelHogar.deleteTask(droop);
   showData();
   showDataComplete();
+}
 
+function clearAll(){
+  tareaDelHogar.deleteAll();
+  showData();
+  showDataComplete();
 }
 
 {/* <span class='algo' onclick="taskCompleted(item_${index})">✔</span>$ */}

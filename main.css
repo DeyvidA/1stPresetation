@@ -27,7 +27,7 @@ header p{
 }
 main{
     width: 70%;
-    max-width: 600px; 
+    max-width: 600px;
     min-height: 250px;
     height: auto;
     margin: 0 auto;
@@ -83,11 +83,12 @@ section .form{
 }
 .taskList{
     width: 80%;
-    margin: 10px auto;   
+    margin: 10px auto;
 }
 
 .taskList li{
-    position: relative;
+    display: flex;
+    justify-content: space-between;
     min-height: 3rem;
     height: auto;
     width: 90%;
@@ -97,10 +98,12 @@ section .form{
     border-radius: 4px;
     margin: .8rem auto;
     padding: .5rem;
-    /* padding-left: 1rem; */
     font-size: 1.4rem;
-    z-index: 1;
-    transition: .7s; 
+    transition: .7s;
+
+}
+.taskList li p{
+    /* margin-left: 4rem; */
 }
 .taskList li:hover{
     transform: scale(1);
@@ -115,25 +118,49 @@ section .form{
 }
 
 li .algo{
-    position: absolute;
-    z-index: 2;
-    padding: 0;
-    margin: 0;
     width: 10%;
     height: 100%;
     font-size: 2rem;
     text-align: center;
     border-radius: 1rem;
     transition: 1s;
-    background-color: rebeccapurple;
+
 }
 .algo:hover{
     color: green;
     background-color: #1c2329;
-    transform: scale(1);
+    transform: scale(1.2);
     box-shadow: 0px 3px 6px #4c4947;
 }
 
-#taskCompleted-ul span{
-    color: green;
+li .deleteTask{
+    width: 10%;
+    height: 100%;
+    font-size: 2rem;
+    text-align: center;
+    border-radius: 1rem;
+    transition: 1s;
+}
+
+li .deleteTask:hover{
+    color: #a51f00;
+    background-color: #1c2329;
+    transform: scale(1.2);
+    box-shadow: 0px 3px 6px #4c4947;
+}
+
+
+.titleList{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+
+.fa-trash:before {
+    font-size: 1.8rem;
+}
+
+.fa-trash:hover{
+    color: red;
 }
