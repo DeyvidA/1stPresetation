@@ -87,6 +87,7 @@ section .form{
 }
 
 .taskList li{
+    position: relative;
     min-height: 3rem;
     height: auto;
     width: 90%;
@@ -98,6 +99,7 @@ section .form{
     padding: .5rem;
     /* padding-left: 1rem; */
     font-size: 1.4rem;
+    z-index: 1;
     transition: .7s; 
 }
 .taskList li:hover{
@@ -112,15 +114,18 @@ section .form{
     text-decoration-line: line-through;
 }
 
-.algo{
-    margin-right: .5rem;
-    padding: 0 1rem;
+li .algo{
+    position: absolute;
+    z-index: 2;
+    padding: 0;
+    margin: 0;
     width: 10%;
     height: 100%;
     font-size: 2rem;
     text-align: center;
     border-radius: 1rem;
     transition: 1s;
+    background-color: rebeccapurple;
 }
 .algo:hover{
     color: green;

@@ -15,7 +15,7 @@ class taskList {
   deleteTask(element){
     this.tareasCompletadas.push(element);
     let value = this.tareas.indexOf(element);
-    this.tareas.splice(value);
+    this.tareas.splice(value, 1);
   }
   deleteAll(){
     this.tareas = [];
@@ -38,8 +38,8 @@ const tareaDelHogar = new taskList({
 // Show task in html
 function showData(){
   const elementList = document.getElementById('taskList-ul');
-  const list = tareaDelHogar.tareas.map(tareaDelHogar => {
-    return `<li><span class='algo'>✔</span>${tareaDelHogar}</li>`;
+  const list = tareaDelHogar.tareas.map((tareaDelHogar, index) => {
+    return `<li id="item_${index}"><span class='algo' onclick="taskCompleted(item_${index})"></span>${tareaDelHogar}</li>`;
   });
   elementList.innerHTML = list.join('');
 }
@@ -66,26 +66,42 @@ function newElement(){
 }
 
 // Select list element
-var list = document.querySelector('ul');
-list.addEventListener('click', function(ev) {
-  if (ev.target.tagName === 'LI') {
-    let item = ev.target.classList.toggle('checked');
-    let value = ev.target.innerHTML;
+// var list = document.querySelector('ul');
+// list.addEventListener('click', function(ev) {
+//   if (ev.target.tagName === 'LI') {
+//     let item = ev.target.classList.toggle('checked');
+//     let value = ev.target.innerHTML;
     
-    if(item){
+//     if(item){
 
-      tareaDelHogar.deleteTask(value); 
-      console.log(value);
-    }
-
-    showData();
-    showDataComplete();
-  }
+//       tareaDelHogar.deleteTask(value); 
+//       console.log(value);
+//     }
+//   }
   
-});
+// });
 
+// function taskCompleted(indexItem){
+//   let algo = document.getElementById('indexItem').value;
+//   console.log(indexItem)
+//   let dropItem = tareaDelHogar.deleteTask(indexItem);
 
+//   showData();
+//   showDataComplete();
 
+// }
+
+function taskCompleted(indexItem){
+
+  let droop = indexItem.innerText; 
+  console.log(droop)
+  let dropItem = tareaDelHogar.deleteTask(droop);
+  showData();
+  showDataComplete();
+
+}
+
+{/* <span class='algo' onclick="taskCompleted(item_${index})">✔</span>$ */}
 
 showData();
 showDataComplete();
